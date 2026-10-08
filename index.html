@@ -12,14 +12,13 @@
             margin: 0;
             padding: 0;
             width: 100%;
-            background-color: #f7f5f0; /* Warm recycled paper background */
+            background-color: #f7f5f0;
             color: #1a1a1a;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             user-select: none;
             -webkit-user-select: none;
         }
 
-        /* SVG FILTER FOR HAND-DRAWN PAPER TEXTURE & ROUGH EDGES */
         .paper-textured {
             filter: url('#rough-paper-edge') drop-shadow(2px 3px 2px rgba(0,0,0,0.15));
         }
@@ -39,7 +38,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: #16181f; /* Charcoal construction paper */
+            background-color: #16181f;
             z-index: 100;
             display: flex;
             flex-direction: column;
@@ -77,7 +76,6 @@
             }
         }
 
-        /* COMMON FRACTAL SNOWFLAKE BASE (PAPER CUTOUT STYLE) */
         .snowflake {
             --totalSegments: 16;
             --segment: calc(360deg / var(--totalSegments));
@@ -93,7 +91,6 @@
             animation: spinSnowflake 30s linear infinite;
         }
 
-        /* FRACTAL 1 (Original Geometry) */
         .snowflake.f1 {
             --center: 25% 70%, 0% 85%;
             --l1: 0 80%, 5% 75%, 0 60%;
@@ -105,7 +102,6 @@
             --bg1: repeating-conic-gradient(from 0deg at 0 100%, #f4efe6, #e8e2d5 var(--segment));
         }
 
-        /* FRACTAL 2 (Sharp Crystalline Geometry) */
         .snowflake.f2 {
             --center: 25% 80%, 0% 85%;
             --l1: 0 78%, 7% 70%, 0 60%;
@@ -119,7 +115,6 @@
             animation-direction: reverse;
         }
 
-        /* FRACTAL 3 (Fine Dendritic Geometry) */
         .snowflake.f3 {
             --center: 15% 85%, 0% 90%;
             --l1: 0 80%, 5% 60%, 0 65%;
@@ -191,76 +186,64 @@
         }
 
         @keyframes pulsePrompt {
-            0%, 100% { transform: translateY(0) rotate(-1deg); opacity: 0.95; }
-            50% { transform: translateY(8px) rotate(1deg); opacity: 0.7; }
+            0%, 100% { transform: translateY(0) rotate(-0.5deg); opacity: 0.95; }
+            50% { transform: translateY(6px) rotate(0.5deg); opacity: 0.75; }
         }
         .scroll-prompt { animation: pulsePrompt 1.8s infinite ease-in-out; }
 
-        /* PAPER SECTIONS & CARDS */
+        /* FULL-BLEED SECTIONS (REMOVED CARD APPROACH) */
         .solid-section {
             width: 80vw;
             min-height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
             position: relative;
-            padding: 6vw 0;
-            overflow: hidden;
+            padding: 4rem 6vw;
             border-bottom: 2px dashed #d1ccc0;
             background-color: #fcfbf9;
             background-image: radial-gradient(#e5e0d3 1px, transparent 0);
             background-size: 16px 16px;
         }
 
-        .solid-section .inner {
-            max-width: 560px;
-            padding: 2.5rem 2rem;
-            position: relative;
-            z-index: 3;
-            background: #ffffff;
-            border: 2px solid #222222;
-            border-radius: 4px;
-            box-shadow: 6px 8px 0px #222222, 10px 14px 15px rgba(0,0,0,0.06);
-            transform: rotate(-0.5deg);
-        }
-
         .solid-section h2 {
-            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 900;
             letter-spacing: -0.04em;
             line-height: 0.95;
             text-transform: uppercase;
-            margin: 0 0 1rem 0;
+            margin: 0 0 1.25rem 0;
             color: #1a1a1a;
         }
 
         .solid-section p {
-            font-size: clamp(0.85rem, 1.4vw, 1.05rem);
-            line-height: 1.6;
+            font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+            line-height: 1.65;
             font-family: monospace;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.01em;
             opacity: 0.9;
             margin-bottom: 1.5rem;
             color: #2b2b2b;
+            max-width: 48rem;
         }
 
         .solid-section .tag {
             display: inline-block;
             font-family: monospace;
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            padding: 4px 12px;
+            padding: 6px 14px;
             border-radius: 2px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             background: #1a1a1a;
             color: #ffffff;
             border: 1.5px solid #000000;
             box-shadow: 2px 2px 0px #888888;
+            width: fit-content;
         }
 
-        /* Hero Snowfall Canvas */
         #snowCanvas {
             position: absolute;
             top: 0;
@@ -271,13 +254,11 @@
             z-index: 1;
         }
 
-        /* Profile Image Paper Placeholder */
         .profile-placeholder {
             width: 84px;
             height: 84px;
             border-radius: 50%;
-            border: 2.5px stroke #1a1a1a;
-            border-style: dashed;
+            border: 2.5px dashed #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -288,22 +269,20 @@
 
         .interest-art {
             margin: 1.25rem 0;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 12px 16px;
-            border: 2px stroke #1a1a1a;
+            padding: 12px 18px;
+            border: 2px solid #1a1a1a;
             border-radius: 4px;
             background: #fdfbf7;
             box-shadow: 3px 3px 0px #1a1a1a;
+            max-width: fit-content;
         }
 
-        /* Camp Scene (Paper Cutout Style) */
-        #sectionA { background-color: #f7f5f0; }
-        #sectionA .inner {
-            margin-left: 4vw;
-            margin-right: auto;
-            transform: rotate(0.5deg);
+        #sectionA { 
+            background-color: #f7f5f0; 
+            position: relative;
         }
 
         .camp-stage {
@@ -311,7 +290,7 @@
             bottom: 0;
             right: 0;
             width: 55%;
-            height: 75%;
+            height: 70%;
             z-index: 2;
         }
 
@@ -381,7 +360,6 @@
         .tree-2 { left: 7%; }
         .tree-3 { left: 95%; }
 
-        /* PAPER SKETCHED SNOWMEN */
         .snowman {
             position: absolute;
             bottom: 15%;
@@ -484,13 +462,11 @@
 
         #skiingPanel canvas { display: block; width: 100%; height: 100%; }
 
+        /* SCROLL HINT POSITIONED AT BOTTOM OF HERO SECTION */
         #scrollHint {
-            position: fixed;
-            top: 33%;
-            left: 40%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            pointer-events: none;
+            position: absolute;
+            bottom: 2rem;
+            left: 6vw;
             z-index: 10;
             transition: opacity 0.5s ease;
         }
@@ -498,7 +474,6 @@
 </head>
 <body class="bg-[#f7f5f0] text-[#1a1a1a] relative">
 
-    <!-- SVG ROUGH PAPER EDGE FILTER -->
     <svg style="position: absolute; width: 0; height: 0; overflow: hidden;">
       <defs>
         <filter id="rough-paper-edge">
@@ -508,10 +483,9 @@
       </defs>
     </svg>
 
-    <!-- 3-FRACTAL CSS SNOWFLAKE INTRO OVERLAY -->
+    <!-- INTRO OVERLAY -->
     <div id="introOverlay">
         <div class="grid-wrapper">
-            <!-- FRACTAL 1 -->
             <div class="snowflake f1">
                 <div class="segment" style="--i: 1"></div>
                 <div class="segment" style="--i: 2"></div>
@@ -531,7 +505,6 @@
                 <div class="segment" style="--i: 16"></div>
             </div>
 
-            <!-- FRACTAL 2 -->
             <div class="snowflake f2">
                 <div class="segment" style="--i: 1"></div>
                 <div class="segment" style="--i: 2"></div>
@@ -551,7 +524,6 @@
                 <div class="segment" style="--i: 16"></div>
             </div>
 
-            <!-- FRACTAL 3 -->
             <div class="snowflake f3">
                 <div class="segment" style="--i: 1"></div>
                 <div class="segment" style="--i: 2"></div>
@@ -576,13 +548,13 @@
 
     <main id="sections">
 
-        <!-- HERO SECTION — FROST BYTE WITH SNOWFALL -->
+        <!-- HERO SECTION (BASE CAMP) -->
         <section id="sectionA" class="solid-section">
             <canvas id="snowCanvas"></canvas>
-            <div class="inner paper-textured">
+            <div class="z-10 max-w-2xl">
                 <span class="tag">Section A · Base Camp</span>
-                <h2 style="font-size: clamp(3rem, 7vw, 5.5rem); letter-spacing: -0.05em;">FROST BYTE</h2>
-                <p>Welcome to Frost Byte. We are a collective of creators navigating software design, computational mechanics, and freezing winter runs. Scroll down to meet the team.</p>
+                <h2 style="font-size: clamp(3.2rem, 8vw, 6rem); letter-spacing: -0.05em;">FROST BYTE</h2>
+                <p>Welcome to Frost Byte. We are a collective of creators navigating software design, computational mechanics, and freezing winter runs. Scroll down to explore our team and projects.</p>
             </div>
 
             <div class="camp-stage" id="campStage">
@@ -645,175 +617,194 @@
                     </svg>
                 </div>
             </div>
+
+            <!-- SCROLLER POINT FIXED AT THE BOTTOM OF HERO SECTION -->
+            <div id="scrollHint">
+                <div class="bg-[#1a1a1a] text-[#f7f5f0] text-xs font-mono font-bold uppercase tracking-widest px-6 py-3 rounded-md border-2 border-[#1a1a1a] shadow-[4px_4px_0px_#000000] flex items-center gap-2 scroll-prompt">
+                    <span>Scroll Down to Ski</span>
+                    <svg class="w-4 h-4 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </div>
+            </div>
         </section>
 
         <!-- STEVE SECTION -->
         <section class="solid-section" style="background-color: #f7f5f0;">
-            <div class="inner paper-textured">
-                <div class="profile-placeholder">
-                    <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                </div>
+            <div class="profile-placeholder">
+                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+            </div>
 
-                <span class="tag">Section B · Steve</span>
-                <h2>Steve</h2>
-                <p>I thrive at the intersection of logical engineering and interactive creation. Building virtual worlds and crafting crisp codebases are my main passions—whether structuring algorithms or designing custom game physics.</p>
-                
-                <div class="interest-art">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                        <polyline points="2 17 12 22 22 17"/>
-                        <polyline points="2 12 12 17 22 12"/>
-                    </svg>
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="6" width="20" height="12" rx="3"/>
-                        <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/>
-                    </svg>
-                    <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Coding & Game Dev</span>
-                </div>
+            <span class="tag">Section B · Steve</span>
+            <h2>Steve</h2>
+            <p>I thrive at the intersection of logical engineering and interactive creation. Building virtual worlds and crafting crisp codebases are my main passions—whether structuring algorithms or designing custom game physics.</p>
+            
+            <div class="interest-art">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                </svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="6" width="20" height="12" rx="3"/>
+                    <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/>
+                </svg>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Coding & Game Dev</span>
+            </div>
 
-                <div>
-                    <a href="https://github.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        LinkedIn
-                    </a>
-                </div>
+            <div class="mt-4">
+                <a href="https://github.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
             </div>
         </section>
 
         <!-- BLESSING SECTION -->
         <section class="solid-section" style="background-color: #f2eee5;">
-            <div class="inner paper-textured">
-                <div class="profile-placeholder">
-                    <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                </div>
+            <div class="profile-placeholder">
+                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+            </div>
 
-                <span class="tag">Section C · Blessing</span>
-                <h2>Blessing</h2>
-                <p>Blessing brings cinematic narrative thinking into digital product experiences. Deeply inspired by storytelling, movies, and anime aesthetics, Blessing ensures every user flow feels engaging and memorable.</p>
+            <span class="tag">Section C · Blessing</span>
+            <h2>Blessing</h2>
+            <p>Blessing brings cinematic narrative thinking into digital product experiences. Deeply inspired by storytelling, movies, and anime aesthetics, Blessing ensures every user flow feels engaging and memorable.</p>
 
-                <div class="interest-art">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="4" width="20" height="16" rx="2"/>
-                        <path d="M2 8h20M2 14h20M6 4v16M18 4v16"/>
-                    </svg>
-                    <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Cinema & Anime</span>
-                </div>
+            <div class="interest-art">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="M2 8h20M2 14h20M6 4v16M18 4v16"/>
+                </svg>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Cinema & Anime</span>
+            </div>
 
-                <div>
-                    <a href="https://github.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        LinkedIn
-                    </a>
-                </div>
+            <div class="mt-4">
+                <a href="https://github.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
             </div>
         </section>
 
         <!-- NELSON SECTION -->
         <section class="solid-section" style="background-color: #ede8dc;">
-            <div class="inner paper-textured">
-                <div class="profile-placeholder">
-                    <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                </div>
+            <div class="profile-placeholder">
+                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+            </div>
 
-                <span class="tag">Section D · Nelson</span>
-                <h2>Nelson</h2>
-                <p>Nelson approaches both art and programming with fluid precision. An avid sketcher and illustrator, Nelson applies fine visual details and balanced geometry directly into web canvases and UI components.</p>
+            <span class="tag">Section D · Nelson</span>
+            <h2>Nelson</h2>
+            <p>Nelson approaches both art and programming with fluid precision. An avid sketcher and illustrator, Nelson applies fine visual details and balanced geometry directly into web canvases and UI components.</p>
 
-                <div class="interest-art">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-                        <path d="M2 2l7.5 7.5"/>
-                    </svg>
-                    <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Illustration & Drawing</span>
-                </div>
+            <div class="interest-art">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+                    <path d="M2 2l7.5 7.5"/>
+                </svg>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Illustration & Drawing</span>
+            </div>
 
-                <div>
-                    <a href="https://github.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        LinkedIn
-                    </a>
-                </div>
+            <div class="mt-4">
+                <a href="https://github.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
             </div>
         </section>
 
         <!-- RAYNOLD SECTION -->
         <section class="solid-section" style="background-color: #e3dec3;">
-            <div class="inner paper-textured">
-                <div class="profile-placeholder">
-                    <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                    </svg>
-                </div>
+            <div class="profile-placeholder">
+                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                </svg>
+            </div>
 
-                <span class="tag">Section E · Raynold</span>
-                <h2>Raynold</h2>
-                <p>Raynold values high speed, aerodynamic design, and mechanical craftsmanship. Fascinated by automotive engineering and swift performance, Raynold builds software with the same speed and efficiency.</p>
+            <span class="tag">Section E · Raynold</span>
+            <h2>Raynold</h2>
+            <p>Raynold values high speed, aerodynamic design, and mechanical craftsmanship. Fascinated by automotive engineering and swift performance, Raynold builds software with the same speed and efficiency.</p>
 
-                <div class="interest-art">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M5 17h14M3 11l2-5h14l2 5M3 11v6h18v-6M7 17a2 2 0 100-4 2 2 0 000 4zM17 17a2 2 0 100-4 2 2 0 000 4z"/>
-                    </svg>
-                    <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Automotive & Speed</span>
-                </div>
+            <div class="interest-art">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 17h14M3 11l2-5h14l2 5M3 11v6h18v-6M7 17a2 2 0 100-4 2 2 0 000 4zM17 17a2 2 0 100-4 2 2 0 000 4z"/>
+                </svg>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Automotive & Speed</span>
+            </div>
 
-                <div>
-                    <a href="https://github.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        LinkedIn
-                    </a>
-                </div>
+            <div class="mt-4">
+                <a href="https://github.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
+            </div>
+        </section>
+
+        <!-- IGNITION PROJECT SECTION -->
+        <section class="solid-section" style="background-color: #dfd8c4;">
+            <span class="tag">Section F · Project</span>
+            <h2>Project Ignition</h2>
+            <p><strong>Ignition</strong> is our flagship computational engine designed to bridge rapid prototype execution with modular high-performance architectures. Built to ignite ideas instantly, it combines low-latency rendering pipelines with automated workspace state management.</p>
+            
+            <div class="interest-art">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/>
+                </svg>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">High-Performance Core Engine</span>
+            </div>
+
+            <div class="mt-4">
+                <a href="https://github.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    View Project Code
+                </a>
             </div>
         </section>
 
         <!-- MENTOR SECTION -->
         <section class="solid-section" style="background-color: #d9d4be;">
-            <div class="inner paper-textured">
-                <span class="tag">Section F · Advisory</span>
-                <h2>Mentor</h2>
-                <p>Guiding Frost Byte through complex technical challenges and providing strategic oversight, our mentor keeps our momentum steady and directed down the proper path.</p>
-                <div>
-                    <a href="https://github.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                        GitHub
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="btn-social">
-                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                        LinkedIn
-                    </a>
-                </div>
+            <span class="tag">Section G · Advisory</span>
+            <h2>Mentor</h2>
+            <p>Guiding Frost Byte through complex technical challenges and providing strategic oversight, our mentor keeps our momentum steady and directed down the proper path.</p>
+            <div class="mt-4">
+                <a href="https://github.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="btn-social">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                </a>
             </div>
         </section>
 
         <!-- FINISH LINE SECTION -->
         <section class="solid-section" style="background-color: #1c1d22;">
-            <div class="inner paper-textured" style="background: #252830; border-color: #f7f5f0; box-shadow: 6px 8px 0px #000000;">
-                <span class="tag" style="background: #f7f5f0; color: #1a1a1a;">Section G · Finish</span>
-                <h2 style="color: #f7f5f0;">Finish<br>Line</h2>
-                <p style="color: #f7f5f0; opacity: 0.9;">The run is complete. From base camp through team insights to the finish line. Scroll back up to ascend—the track reverses seamlessly.</p>
-            </div>
+            <span class="tag" style="background: #f7f5f0; color: #1a1a1a;">Section H · Finish</span>
+            <h2 style="color: #f7f5f0;">Finish<br>Line</h2>
+            <p style="color: #f7f5f0; opacity: 0.9;">The run is complete. From base camp through team insights and Project Ignition to the finish line. Scroll back up to ascend—the track reverses seamlessly.</p>
         </section>
     </main>
 
@@ -826,6 +817,7 @@
             <div class="progress-dot" data-dot="E"></div>
             <div class="progress-dot" data-dot="F"></div>
             <div class="progress-dot" data-dot="G"></div>
+            <div class="progress-dot" data-dot="H"></div>
         </div>
     </div>
 
@@ -833,17 +825,7 @@
         <canvas id="miniCanvas"></canvas>
     </div>
 
-    <div id="scrollHint">
-        <div class="bg-[#1a1a1a] text-[#f7f5f0] text-xs font-mono font-bold uppercase tracking-widest px-6 py-3 rounded-md border-2 border-[#1a1a1a] shadow-[4px_4px_0px_#000000] flex items-center gap-2 scroll-prompt">
-            <span>Scroll Down to Ski</span>
-            <svg class="w-4 h-4 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-            </svg>
-        </div>
-    </div>
-
     <script>
-        /* INTRO TRANSITION CONTROLLER */
         class IntroController {
             constructor() {
                 this.overlay = document.getElementById('introOverlay');
@@ -859,7 +841,6 @@
             }
         }
 
-        /* REUSABLE PAPER-DRAWN VECTOR SNOWMAN CHARACTER */
         class VectorSnowmanCharacter {
             constructor(name, positionLeftPercent, indexClass, hasGlasses = false, glassesColor = '#8e44ad') {
                 this.name = name;
@@ -885,23 +866,16 @@
 
                 wrapper.innerHTML = `
                     <svg width="80" height="110" viewBox="0 0 140 200" fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Paper Cutout Snow Body -->
                         <circle cx="70" cy="150" r="38" fill="#fcfbf9" />
                         <circle cx="70" cy="90" r="28" fill="#fcfbf9" />
                         <circle cx="70" cy="45" r="20" fill="#fcfbf9" />
-                        
-                        <!-- Paper Drawn Features -->
                         <circle cx="63" cy="40" r="2.5" fill="#1a1a1a" stroke="none" />
                         <circle cx="77" cy="40" r="2.5" fill="#1a1a1a" stroke="none" />
                         ${glassesSVG}
                         <polygon points="70,45 88,47 70,50" fill="#e65100" stroke="#1a1a1a" stroke-width="2" />
-                        
-                        <!-- Coal Buttons -->
                         <circle cx="70" cy="80" r="3" fill="#1a1a1a" stroke="none" />
                         <circle cx="70" cy="95" r="3" fill="#1a1a1a" stroke="none" />
                         <circle cx="70" cy="110" r="3" fill="#1a1a1a" stroke="none" />
-                        
-                        <!-- Stick Arms -->
                         <line x1="42" y1="90" x2="15" y2="75" stroke="#3e2723" stroke-width="3.5" />
                         <line x1="22" y1="78" x2="18" y2="70" stroke="#3e2723" stroke-width="2.5" />
                         <line x1="98" y1="90" x2="125" y2="75" stroke="#3e2723" stroke-width="3.5" />
@@ -920,7 +894,6 @@
             }
         }
 
-        /* Minimalist Snowfall Effect */
         class MinimalSnowfallEffect {
             constructor() {
                 this.canvas = document.getElementById('snowCanvas');
@@ -976,7 +949,6 @@
             }
         }
 
-        /* Skiing Animation Engine with Paper Track & Skier */
         function catmullRom2D(p0, p1, p2, p3, t, alpha = 0.5) {
             function getT(tPrev, pA, pB) {
                 const dx = pB.x - pA.x;
@@ -1050,13 +1022,13 @@
 
                 const centerX = this.width / 2;
                 const startY = 60;
-                const totalHeight = this.height * 4;
+                const totalHeight = this.height * 5;
                 const finishY = startY + totalHeight;
 
                 this.rawAnchors.push({ x: centerX, y: startY });
                 this.rawAnchors.push({ x: centerX, y: startY + 40 });
 
-                const numWaves = 14;
+                const numWaves = 16;
                 const amplitude = Math.min(this.width * 0.30, 50);
 
                 for (let i = 1; i <= numWaves; i++) {
@@ -1247,7 +1219,7 @@
                     this.ctx.lineWidth = 2.5;
                     this.ctx.lineCap = 'round';
                     this.ctx.lineJoin = 'round';
-                    this.ctx.setLineDash([4, 4]); // Dashed paper cut line
+                    this.ctx.setLineDash([4, 4]);
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.smoothedPoints[0].x, this.smoothedPoints[0].y - this.cameraY);
                     for (let i = 1; i < this.smoothedPoints.length; i++) {
@@ -1282,14 +1254,15 @@
                     const currentScroll = window.scrollY;
                     const scrollPct = maxScroll > 0 ? currentScroll / maxScroll : 0;
 
-                    const sectionASize = 1 / 7;
+                    const totalSections = 8;
+                    const sectionSize = 1 / totalSections;
+
                     if (this.scrollHint) {
-                        this.scrollHint.style.opacity = scrollPct > sectionASize * 0.9 ? '0' : '1';
+                        this.scrollHint.style.opacity = scrollPct > (sectionSize * 0.8) ? '0' : '1';
                     }
 
-                    const sectionSize = 1 / 7;
                     let idx = Math.floor(scrollPct / sectionSize);
-                    if (idx >= 7) idx = 6;
+                    if (idx >= totalSections) idx = totalSections - 1;
                     if (idx !== this.currentIndex) {
                         this.currentIndex = idx;
                         this.updateUI();
