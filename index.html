@@ -276,17 +276,24 @@
             100% { transform: skewX(6deg); }
         }
 
+        .profile-image,
         .profile-placeholder {
             width: 84px;
             height: 84px;
             border-radius: 50%;
-            border: 2.5px dashed #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border: 2.5px solid #1a1a1a;
+            display: block;
             margin-bottom: 1.25rem;
             background-color: #f4efe6;
             box-shadow: inset 2px 2px 4px rgba(0,0,0,0.08), 3px 3px 0px #1a1a1a;
+            object-fit: cover;
+        }
+
+        .profile-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-style: dashed;
         }
 
         .interest-art {
@@ -555,6 +562,7 @@
         .section-flake .snowflake.f1 { animation-duration: 30s; }
         .section-flake .snowflake.f2 { animation-duration: 22s; animation-direction: reverse; }
         .section-flake .snowflake.f3 { animation-duration: 38s; }
+        #sectionFinish { background-image: none; }
         .flake-top-right { top: 4%; right: 3%; }
         .flake-bottom-left { bottom: 4%; left: 3%; }
         .flake-top-left { top: 5%; left: 2%; }
@@ -598,19 +606,27 @@
         }
 
         /* ============================================
-           FOOTER — Minimal Black, No Animation
+           FOOTER
            ============================================ */
         #mainFooter {
-            width: 80%;
-            background-color: #000000;
+            width: 80vw;
+            max-width: none;
+            background-color: #1c1d22;
             color: #ffffff;
             padding: 2.5rem 0 6rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0;
+            border-top: 2px dashed #d1ccc0;
         }
 
         #mainFooter .footer-content {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
             font-family: monospace;
             font-size: 0.85rem;
             font-weight: 700;
@@ -618,6 +634,18 @@
             text-transform: uppercase;
             color: #ffffff;
             text-align: center;
+        }
+
+        .footer-snowflake {
+            width: 2rem;
+            height: 2rem;
+            flex: 0 0 auto;
+            stroke: #b8f3ff;
+            stroke-width: 1.7;
+            stroke-linecap: round;
+            fill: none;
+            filter: drop-shadow(0 0 5px rgba(184, 243, 255, 0.65));
+            animation: spinSnowflake 24s linear infinite;
         }
     </style>
 </head>
@@ -814,7 +842,7 @@
                     <div class="segment" style="--i: 16"></div>
                 </div>
             </div>
-            <div class="section-flake flake-bottom-left">
+            <div class="section-flake flake-bottom-right">
                 <div class="snowflake f3">
                     <div class="segment" style="--i: 1"></div>
                     <div class="segment" style="--i: 2"></div>
@@ -846,11 +874,7 @@
                 </svg>
             </div>
 
-            <div class="profile-placeholder">
-                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                </svg>
-            </div>
+            <img class="profile-image" src="assets/Steve.jpg" alt="Steve portrait" loading="lazy" />
 
             <span class="tag">Section B · Steve</span>
             <h2>Steve</h2>
@@ -866,15 +890,15 @@
                     <rect x="2" y="6" width="20" height="12" rx="3"/>
                     <path d="M6 12h4M8 10v4M15 11h.01M18 13h.01"/>
                 </svg>
-                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Coding & Game Dev</span>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">I live for the Games</span>
             </div>
 
                 <div class="mt-4">
-                    <a href="https://github.com/StevenPitso" target="_blank" class="btn-social">
+                    <a href="https://github.com/StevenPitso" target="_blank" class="btn-social btn-github">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/stevenpitso/" target="_blank" class="btn-social">
+                    <a href="https://www.linkedin.com/in/stevenpitso/" target="_blank" class="btn-social btn-linkedin">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn
                     </a>
@@ -905,7 +929,7 @@
 
         <!-- BLESSING SECTION -->
         <section id="sectionBlessing" class="solid-section" style="background-color: #f2eee5;">
-            <div class="section-flake flake-top-left">
+            <div class="section-flake flake-top-right">
                 <div class="snowflake f2">
                     <div class="segment" style="--i: 1"></div>
                     <div class="segment" style="--i: 2"></div>
@@ -957,11 +981,7 @@
                 </svg>
             </div>
 
-            <div class="profile-placeholder">
-                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                </svg>
-            </div>
+            <img class="profile-image" src="assets/Blessings.jpg" alt="Blessings portrait" loading="lazy" />
 
             <span class="tag">Section C · Blessing</span>
             <h2>Blessings</h2>
@@ -972,15 +992,15 @@
                     <rect x="2" y="4" width="20" height="16" rx="2"/>
                     <path d="M2 8h20M2 14h20M6 4v16M18 4v16"/>
                 </svg>
-                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Cinema & Anime</span>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">I love watching Movies and Anime</span>
             </div>
 
                 <div class="mt-4">
-                    <a href="https://github.com/blessf20" target="_blank" class="btn-social">
+                    <a href="https://github.com/blessf20" target="_blank" class="btn-social btn-github">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/blessings-mudarikwa-b8613a3a3/" target="_blank" class="btn-social">
+                    <a href="https://www.linkedin.com/in/blessings-mudarikwa-b8613a3a3/" target="_blank" class="btn-social btn-linkedin">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn
                     </a>
@@ -1066,11 +1086,7 @@
                 </svg>
             </div>
 
-            <div class="profile-placeholder">
-                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                </svg>
-            </div>
+            <img class="profile-image" src="assets/Nelson.jpg" alt="Nelson portrait" loading="lazy" />
 
             <span class="tag">Section D · Nelson</span>
             <h2>Nelson</h2>
@@ -1082,15 +1098,15 @@
                     <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
                     <path d="M2 2l7.5 7.5"/>
                 </svg>
-                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Illustration & Drawing</span>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">I love art and drawing</span>
             </div>
 
                 <div class="mt-4">
-                    <a href="https://github.com/Gittan4" target="_blank" class="btn-social">
+                    <a href="https://github.com/Gittan4" target="_blank" class="btn-social btn-github">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/nelson-gitta-8a6a272b8/" target="_blank" class="btn-social">
+                    <a href="https://www.linkedin.com/in/nelson-gitta-8a6a272b8/" target="_blank" class="btn-social btn-linkedin">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn
                     </a>
@@ -1170,11 +1186,7 @@
                 </svg>
             </div>
 
-            <div class="profile-placeholder">
-                <svg class="w-8 h-8 opacity-60" fill="none" stroke="#1a1a1a" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                </svg>
-            </div>
+            <img class="profile-image" src="assets/Raynold.jpg" alt="Raynold portrait" loading="lazy" />
 
             <span class="tag">Section E · Raynold</span>
             <h2>Raynold</h2>
@@ -1184,15 +1196,15 @@
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M5 17h14M3 11l2-5h14l2 5M3 11v6h18v-6M7 17a2 2 0 100-4 2 2 0 000 4zM17 17a2 2 0 100-4 2 2 0 000 4z"/>
                 </svg>
-                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">Automotive & Speed</span>
+                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">I love everything about cars</span>
             </div>
 
                 <div class="mt-4">
-                    <a href="https://github.com/RaynKing24" target="_blank" class="btn-social">
+                    <a href="https://github.com/RaynKing24" target="_blank" class="btn-social btn-github">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                         GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/munyaradzi-chisinahama-65b193264/" target="_blank" class="btn-social">
+                    <a href="https://www.linkedin.com/in/munyaradzi-chisinahama-65b193264/" target="_blank" class="btn-social btn-linkedin">
                         <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         LinkedIn
                     </a>
@@ -1412,12 +1424,35 @@
                     <polygon points="125,50 140,60 125,70" fill="#ffeb3b" stroke="#ffffff" stroke-width="2" />
                 </svg>
             </div>
+
+
+
         </section>
 
-        <!-- FOOTER — Minimal, no animation -->
+                    <!-- FOOTER — Minimal, no animation -->
         <footer id="mainFooter">
             <div class="footer-content">
-                FROSTBYTE &lt;3
+                <svg class="footer-snowflake" viewBox="-16 -16 32 32" aria-hidden="true">
+                    <g>
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(60)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(120)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(180)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(240)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(300)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                </svg>
+                <span>made with 💙 by FROSTBYTE </span>
             </div>
         </footer>
     </main>
