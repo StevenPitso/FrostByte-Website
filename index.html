@@ -533,6 +533,44 @@
             box-shadow: 5px 5px 0px #004182;
         }
 
+        .btn-youtube {
+            background: #ffffff;
+            color: #1a1a1a;
+            border-color: #1a1a1a;
+            width: 10vw;
+            justify-content: center;
+            padding-right: 6px;
+            padding-left: 6px;
+            white-space: nowrap;
+        }
+        .btn-youtube:hover {
+            background: #ff0000;
+            color: #ffffff;
+            border-color: #cc0000;
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #cc0000;
+        }
+        .btn-youtube:hover svg {
+            color: #000000;
+        }
+        .btn-youtube svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 40rem) {
+            .btn-youtube {
+                padding: 4px;
+            }
+            .btn-youtube svg {
+                width: 16px;
+                height: 16px;
+            }
+            .btn-youtube-label {
+                display: none;
+            }
+        }
+
         #dotsColumn {
             position: fixed;
             top: 0;
@@ -1326,6 +1364,13 @@
                 <li>Driver and vehicle assignments</li>
                 <li>Maintenance and fleet utilisation analytics</li>
             </ul>
+            <a href="https://youtu.be/XX_eSxXo-Rc" target="_blank" rel="noopener noreferrer" class="btn-social btn-youtube" aria-label="Watch the YouTube demo">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8Z"/>
+                    <path fill="#ffffff" d="m9.6 15.6 6.2-3.6-6.2-3.6z"/>
+                </svg>
+                <span class="btn-youtube-label">YouTube Demo</span>
+            </a>
             
 
 
