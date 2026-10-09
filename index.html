@@ -1316,8 +1316,8 @@
                 </div>
             </div>
 
-            <span class="tag">Section F · Project</span>
-            <h2>Project Ignition</h2>
+            <span class="tag">Project</span>
+            <h2>Ignition</h2>
             <p><strong>Ignition</strong> is our flagship fleet management platform, created in close collaboration with the UJ Transport &amp; Logistics Department. Built over many months—including the winter season—it brings trip requests, driver and vehicle assignments, and fleet and financial analytics together in one system. 🚍</p>
             <p>By connecting day-to-day transport operations with clear, useful insights, Ignition turns thoughtful engineering into real-world impact. ⚙️</p>
 
@@ -1523,6 +1523,27 @@
                     </g>
                 </svg>
                 <span>made with 💙 by FROSTBYTE </span>
+
+                <svg class="footer-snowflake" viewBox="-16 -16 32 32" aria-hidden="true">
+                    <g>
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(60)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(120)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(180)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(240)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                    <g transform="rotate(300)">
+                        <path d="M0 0V-14 M0-5L-3-8 M0-5L3-8 M0-9L-3-12 M0-9L3-12" />
+                    </g>
+                </svg>
             </div>
         </footer>
     </main>
@@ -1724,6 +1745,7 @@
                         this.smoothedPoints.push(pt);
                     }
                 }
+                this.smoothedPoints.push(this.rawAnchors[this.rawAnchors.length - 1]);
 
                 this.totalDistance = 0;
                 for (let i = 1; i < this.smoothedPoints.length; i++) {
@@ -1815,6 +1837,40 @@
                 ctx.restore();
             }
 
+            drawCourseFlag(point, label) {
+                const ctx = this.ctx;
+                const screenY = point.y - this.cameraY;
+                if (screenY < -36 || screenY > this.height + 36) return;
+
+                const flagSide = point.x <= this.width / 2 ? -1 : 1;
+                const poleX = point.x + flagSide * Math.min(24, this.width * 0.24);
+                const poleTop = screenY - 25;
+
+                ctx.save();
+                ctx.strokeStyle = '#1a1a1a';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(poleX, screenY);
+                ctx.lineTo(poleX, poleTop);
+                ctx.stroke();
+
+                ctx.fillStyle = '#2da44e';
+                ctx.beginPath();
+                ctx.moveTo(poleX, poleTop);
+                ctx.lineTo(poleX + flagSide * 13, poleTop + 4);
+                ctx.lineTo(poleX, poleTop + 9);
+                ctx.closePath();
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.font = 'bold 6px monospace';
+                ctx.textAlign = flagSide > 0 ? 'left' : 'right';
+                ctx.textBaseline = 'top';
+                ctx.fillStyle = '#1a1a1a';
+                ctx.fillText(label, poleX + flagSide * 3, poleTop + 11);
+                ctx.restore();
+            }
+
             draw2DSkier(screenX, screenY, tangent, leanAmount, isReversing) {
                 const ctx = this.ctx;
                 ctx.save();
@@ -1895,6 +1951,8 @@
                 }
 
                 this.sceneryProps.forEach(t => this.drawTree(t, this.cameraY));
+                this.drawCourseFlag(this.smoothedPoints[0], 'START');
+                this.drawCourseFlag(this.smoothedPoints[this.smoothedPoints.length - 1], 'FINISH');
 
                 const lookAhead = this.getSplinePointAndTangentAtDistance(this.currentScrollDist + 10);
                 const angleDelta = (lookAhead.tangent.x - skierWorld.tangent.x);
