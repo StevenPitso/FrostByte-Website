@@ -1,24 +1,24 @@
 
 
 Blessings{
-    linkedin:,
-    github:
+    linkedin:https://www.linkedin.com/in/blessings-mudarikwa-b8613a3a3/,
+    github:https://github.com/blessf20
 }
 
 
 Raynold{
-    linkedin:,
-    github:
+    linkedin:https://www.linkedin.com/in/munyaradzi-chisinahama-65b193264/,
+    github:https://github.com/RaynKing24
 }
 
 
 Nelson{
-    linkedin:,
-    github:
+    linkedin:https://www.linkedin.com/in/nelson-gitta-8a6a272b8/,
+    github:https://github.com/Gittan4
 }
 
 
 Steve{
-    linkedin:,
-    github:
+    linkedin:https://www.linkedin.com/in/stevenpitso/,
+    github:https://github.com/StevenPitso
 }
