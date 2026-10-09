@@ -244,9 +244,24 @@
         #sectionProject .project-features {
             max-width: 48rem;
             margin: 0 0 1.5rem;
-            padding-left: 1.5rem;
+            padding-left: 0;
             font-family: monospace;
             line-height: 1.8;
+            list-style: none;
+        }
+
+        #sectionProject .project-features li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        #sectionProject .project-features li::before {
+            position: absolute;
+            left: 0;
+            color: #218838;
+            content: "•";
+            font-size: 1.25em;
+            line-height: inherit;
         }
 
         .solid-section .tag {
@@ -897,7 +912,7 @@
 
             <img class="profile-image" src="assets/Steve.jpg" alt="Steve portrait" loading="lazy" />
 
-            <span class="tag">Section B · Steve</span>
+           
             <h2>Steve</h2>
             <blockquote class="profile-quote">“I live for the code.” ⚡</blockquote>
             <p>Hi, I’m Steve! I love coding, solving complex problems, and immersive video games. When I’m not building virtual worlds or experimenting with visual graphics, you’ll find me watching a movie or taking a peaceful hike in nature. 🎮🎨🌲</p>
@@ -1005,7 +1020,7 @@
 
             <img class="profile-image" src="assets/Blessings.jpg" alt="Blessings portrait" loading="lazy" />
 
-            <span class="tag">Section C · Blessing</span>
+            
             <h2>Blessings</h2>
             <blockquote class="profile-quote">“Crafting digital experiences with cinematic vision.” ✨</blockquote>
             <p>Hi, I’m Blessings! I bring cinematic storytelling into digital products. Inspired by movies and anime, I love creating user experiences that feel engaging, memorable, and full of life. 🎬🌌</p>
@@ -1111,7 +1126,7 @@
 
             <img class="profile-image" src="assets/Nelson.jpg" alt="Nelson portrait" loading="lazy" />
 
-            <span class="tag">Section D · Nelson</span>
+          
             <h2>Nelson</h2>
             <blockquote class="profile-quote">“Precision in art, clarity in code.” 🎨</blockquote>
             <p>Hi, I’m Nelson! I approach art and programming with fluid precision. As an avid sketcher and illustrator, I bring fine visual details and balanced geometry to web canvases and UI components. ✍️📐</p>
@@ -1158,7 +1173,7 @@
 
         <!-- RAYNOLD SECTION -->
         <section id="sectionRaynold" class="solid-section" style="background-color: #e3dec3;">
-            <div class="section-flake flake-bottom-left">
+            <div class="section-flake flake-bottom-right">
                 <div class="snowflake f1">
                     <div class="segment" style="--i: 1"></div>
                     <div class="segment" style="--i: 2"></div>
@@ -1212,7 +1227,7 @@
 
             <img class="profile-image" src="assets/Raynold.jpg" alt="Raynold portrait" loading="lazy" />
 
-            <span class="tag">Section E · Raynold</span>
+            
             <h2>Raynold</h2>
             <blockquote class="profile-quote">“Built for speed and precision.” 🏁</blockquote>
             <p>Hi, I’m Raynold! I love everything about cars—from high speed and aerodynamic design to mechanical craftsmanship. I bring that same drive to building software that’s fast, smooth, and tuned for performance. 🏎️⚙️</p>
@@ -1280,7 +1295,7 @@
                     <div class="segment" style="--i: 16"></div>
                 </div>
             </div>
-            <div class="section-flake flake-bottom-left">
+            <div class="section-flake flake-middle-right">
                 <div class="snowflake f2">
                     <div class="segment" style="--i: 1"></div>
                     <div class="segment" style="--i: 2"></div>
@@ -1312,19 +1327,8 @@
                 <li>Financial and fleet utilization analytics</li>
             </ul>
             
-            <div class="interest-art">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3z"/>
-                </svg>
-                <span class="font-mono text-xs font-bold tracking-wider uppercase ml-auto">High-Performance Core Engine</span>
-            </div>
 
-            <div class="mt-4">
-                <a href="https://github.com" target="_blank" class="btn-social btn-github">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    View Project Code
-                </a>
-            </div>
+
         </section>
 
         <!-- MENTOR SECTION -->
@@ -1370,19 +1374,53 @@
                 </div>
             </div>
 
-            <span class="tag">Section G · Advisory</span>
+
+             <div class="section-flake flake-top-right">
+                <div class="snowflake f2">
+                    <div class="segment" style="--i: 1"></div>
+                    <div class="segment" style="--i: 2"></div>
+                    <div class="segment" style="--i: 3"></div>
+                    <div class="segment" style="--i: 4"></div>
+                    <div class="segment" style="--i: 5"></div>
+                    <div class="segment" style="--i: 6"></div>
+                    <div class="segment" style="--i: 7"></div>
+                    <div class="segment" style="--i: 8"></div>
+                    <div class="segment" style="--i: 9"></div>
+                    <div class="segment" style="--i: 10"></div>
+                    <div class="segment" style="--i: 11"></div>
+                    <div class="segment" style="--i: 12"></div>
+                    <div class="segment" style="--i: 13"></div>
+                    <div class="segment" style="--i: 14"></div>
+                    <div class="segment" style="--i: 15"></div>
+                    <div class="segment" style="--i: 16"></div>
+                </div>
+            </div>
+
+             <div class="section-flake flake-bottom-left">
+                <div class="snowflake f2">
+                    <div class="segment" style="--i: 1"></div>
+                    <div class="segment" style="--i: 2"></div>
+                    <div class="segment" style="--i: 3"></div>
+                    <div class="segment" style="--i: 4"></div>
+                    <div class="segment" style="--i: 5"></div>
+                    <div class="segment" style="--i: 6"></div>
+                    <div class="segment" style="--i: 7"></div>
+                    <div class="segment" style="--i: 8"></div>
+                    <div class="segment" style="--i: 9"></div>
+                    <div class="segment" style="--i: 10"></div>
+                    <div class="segment" style="--i: 11"></div>
+                    <div class="segment" style="--i: 12"></div>
+                    <div class="segment" style="--i: 13"></div>
+                    <div class="segment" style="--i: 14"></div>
+                    <div class="segment" style="--i: 15"></div>
+                    <div class="segment" style="--i: 16"></div>
+                </div>
+            </div>
+
+            <span class="tag"> Advisory</span>
             <h2>Mr. Maluleke</h2>
             <p>Mr. Maluleke is our trusted mentor. His wisdom and steady guidance have helped us navigate tough technical challenges, debugging sessions, and the occasional winter storm—keeping FrostByte moving in the right direction. 🧭❄️</p>
-            <div class="mt-4">
-                <a href="https://github.com" target="_blank" class="btn-social btn-github">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                    GitHub
-                </a>
-                <a href="https://linkedin.com" target="_blank" class="btn-social btn-linkedin">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.762-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    LinkedIn
-                </a>
-            </div>
+
         </section>
 
         <!-- FINISH LINE SECTION -->
@@ -1439,7 +1477,7 @@
                 </svg>
             </div>
 
-            <span class="tag" style="background: #f7f5f0; color: #1a1a1a;">Section H · Finish</span>
+            
             <h2 style="color: #f7f5f0;">Finish<br>Line</h2>
             <p style="color: #f7f5f0; opacity: 0.9;"><strong>Every downhill run reaches the base of the mountain.</strong> This may be the end of this slope, but it’s only the beginning for the FrostByte team. We’ll keep pushing boundaries, innovating, and using code to shape what comes next. 🏔️⛷️</p>
 
@@ -1453,7 +1491,7 @@
                     <polygon points="70,45 80,47 70,49" fill="#ff9800" stroke="none" />
                     <path d="M 62 55 Q 70 62 78 55" stroke="#ffffff" fill="none" stroke-width="2" />
                     <line x1="98" y1="90" x2="125" y2="50" stroke="#ffffff" stroke-width="3" />
-                    <polygon points="125,50 140,60 125,70" fill="#ffeb3b" stroke="#ffffff" stroke-width="2" />
+                    <polygon points="125,50 140,60 125,70" fill="#2da44e" stroke="#ffffff" stroke-width="2" />
                 </svg>
             </div>
 
@@ -1622,9 +1660,7 @@
                 this.currentScrollDist = 0;
                 this.targetScrollDist = 0;
                 this.scrollVelocity = 0;
-
                 this.cameraY = 0;
-                this.cameraInitialized = false;
 
                 this.width = 0;
                 this.height = 0;
@@ -1835,19 +1871,11 @@
                 const scrollPct = maxScroll > 0 ? currentScroll / maxScroll : 0;
 
                 this.targetScrollDist = scrollPct * this.totalDistance;
-                const distDelta = this.targetScrollDist - this.currentScrollDist;
-                this.scrollVelocity = distDelta * 0.12;
-                this.currentScrollDist += this.scrollVelocity;
+                this.scrollVelocity = this.targetScrollDist - this.currentScrollDist;
+                this.currentScrollDist = this.targetScrollDist;
 
                 const skierWorld = this.getSplinePointAndTangentAtDistance(this.currentScrollDist);
-                const targetCameraY = skierWorld.y - this.height * 0.45;
-
-                if (!this.cameraInitialized) {
-                    this.cameraY = targetCameraY;
-                    this.cameraInitialized = true;
-                } else {
-                    this.cameraY += (targetCameraY - this.cameraY) * 0.15;
-                }
+                this.cameraY = skierWorld.y - this.height * 0.45;
 
                 this.ctx.clearRect(0, 0, this.width, this.height);
 
